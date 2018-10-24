@@ -8,11 +8,15 @@ int** int2D(int dim1, int dim2){
 	return ret;
 }
 
-// Mat req_filter(Mat &I, Mat &feature, int r)
-// {
+Mat req_filter(Mat &I, Mat &feature, int r)
+{
+	Mat F = feature.clone();
+	int nI = 256,nF = 256, weightType = 1;
+	I.convertTo(I,CV_32S);
 
+	return I;
 
-// }
+}
 
 int main( int argc, char** argv ) {
 
