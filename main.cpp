@@ -14,10 +14,21 @@ Mat req_filter(Mat &I, Mat &feature, int r)
 	int nI = 256,nF = 256, weightType = 1;
 	I.convertTo(I,CV_32S);
 
+	float **wMap;
+	Mat FNew;
+
 	int alls = F.cols * F.rows;
 	int op;
 	nF = 256;
 	F.convertTo(FNew, CV_32S);
+
+		float **ret = new float*[nF];
+	ret[0] = new float[nF*nF];
+	for(int i=1;i<nF;i++)
+		ret[i] = ret[i-1]+nF;
+
+	wMap =  ret;
+
 
 	return F;
 
