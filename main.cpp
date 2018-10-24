@@ -14,7 +14,12 @@ Mat req_filter(Mat &I, Mat &feature, int r)
 	int nI = 256,nF = 256, weightType = 1;
 	I.convertTo(I,CV_32S);
 
-	return I;
+	int alls = F.cols * F.rows;
+	int op;
+	nF = 256;
+	F.convertTo(FNew, CV_32S);
+
+	return F;
 
 }
 
