@@ -8,6 +8,21 @@ int** int2D(int dim1, int dim2){
 	return ret;
 }
 
+Mat filterCore(Mat &I, Mat &F, float **wMap,int r)
+{
+	int nF=256,nI=256;
+	Mat mask = Mat();
+	int rows = I.rows, cols = I.cols;
+	int alls = rows * cols;
+	int winSize = (2*r+1)*(2*r+1);
+	Mat outImg = I.clone();
+
+	if(mask.empty()){
+		mask = Mat(I.size(),CV_8U);
+		mask = Scalar(1);
+	}
+}
+
 Mat req_filter(Mat &I, int r)
 {
 	Mat feature = I.clone();
