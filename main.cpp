@@ -70,8 +70,60 @@ Mat filterCore(Mat &I, Mat &F, float **wMap,int r)
 				updateBCB(BCB[gval],BCBf,BCBb,gval,-1);
 			}
 		}
+		for(int y=0;y<rows;y++)
+		{
+			{
 
-	return curHist;
+				float balw = 0;
+				int curIndex = F.ptr<int>(y,x)[0];
+				float *fPtr = wMap[curIndex];
+				int &cmedval = medianVal;
+				int i=0;
+				do{
+					balw += BCB[i]*fPtr[i];
+					i=BCBf[i];
+				}while(i);
+
+				if(balw >= 0){
+					for(balw;balw >= 0 && cmedval;cmedval--){
+						float curWeight = 0;
+						int *nextHist = H[cmedval];
+						int *nextHf = Hf[cmedval];
+
+						int i=0;
+						do{
+							curWeight += (nextHist[i]<<1)*fPtr[i];
+							
+							updateBCB(BCB[i],BCBf,BCBb,i,-(nextHist[i]<<1));
+							
+							i=nextHf[i];
+						}while(i);
+
+						balw -= curWeight;
+					}
+				}
+				else if(balw < 0){
+					for(balw;balw < 0 && cmedval != nI-1; cmedval++){
+						float curWeight = 0;
+						int *nextHist = H[cmedval+1];
+						int *nextHf = Hf[cmedval+1];
+
+						int i=0;
+						do{
+							curWeight += (nextHist[i]<<1)*fPtr[i];
+
+							updateBCB(BCB[i],BCBf,BCBb,i,nextHist[i]<<1);
+							
+							i=nextHf[i];
+						}while(i);
+						balw += curWeight;
+					}
+				}
+
+				if(balw<0)outImg.ptr<int>(y,x)[0] = cmedval+1;
+				else outImg.ptr<int>(y,x)[0] = cmedval;
+			}
+	return outImg;
 }
 
 Mat req_filter(Mat &I, int r)
