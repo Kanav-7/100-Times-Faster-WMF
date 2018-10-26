@@ -123,6 +123,38 @@ Mat filterCore(Mat &I, Mat &F, float **wMap,int r)
 				if(balw<0)outImg.ptr<int>(y,x)[0] = cmedval+1;
 				else outImg.ptr<int>(y,x)[0] = cmedval;
 			}
+
+			rownum = y - r;
+			if(rownum >= 0){
+
+				int *inpptr = I.ptr<int>(rownum);
+				int *gdptr = F.ptr<int>(rownum);
+				uchar *maskPtr = mask.ptr<uchar>(rownum);
+
+				for(int j=downX;j<=upX;j++){
+
+					if(!maskPtr[j])continue;
+
+					fval = inpptr[j];
+					curHist = H[fval];
+					gval = gdptr[j];
+
+					curHist[gval]--;
+					if(!curHist[gval] && gval){
+						int *curHf = Hf[fval];
+						int *curHb = Hb[fval];
+
+						int p1=curHb[gval],p2=curHf[gval];
+						curHf[p1]=p2;
+						curHb[p2]=p1;
+					}
+					updateBCB(BCB[gval],BCBf,BCBb,gval,-((fval <= medianVal)<<1)+1);
+				}
+			}
+		}
+
+	}
+
 	return outImg;
 }
 
