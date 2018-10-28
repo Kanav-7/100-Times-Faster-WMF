@@ -1,12 +1,6 @@
 #include "global.hpp"
 
-int** int2D(int dim1, int dim2){
-	int **ret = new int*[dim1];
-	ret[0] = new int[dim1*dim2];
-	for(int i=1;i<dim1;i++)
-		ret[i] = ret[i-1]+dim2;
-	return ret;
-}
+
 
 Mat filterCore(Mat &I, Mat &F, float **wMap,int r)
 {
@@ -157,6 +151,13 @@ Mat filterCore(Mat &I, Mat &F, float **wMap,int r)
 
 	return outImg;
 }
+int** int2D(int dim1, int dim2){
+	int **ret = new int*[dim1];
+	ret[0] = new int[dim1*dim2];
+	for(int i=1;i<dim1;i++)
+		ret[i] = ret[i-1]+dim2;
+	return ret;
+}
 
 Mat req_filter(Mat &I, int r)
 {
@@ -188,7 +189,8 @@ Mat req_filter(Mat &I, int r)
 	}
 	F = FNew;
 
-
+	I = filterCore(I, F, wMap, r);
+	I.convertTo(I,CV_8U);
 	return F;
 
 }
