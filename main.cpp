@@ -1,5 +1,5 @@
 #include "global.hpp"
-
+#include "allocint.hpp"
 
 
 Mat filterCore(Mat &I, Mat &F, float **wMap,int r)
@@ -24,8 +24,7 @@ Mat filterCore(Mat &I, Mat &F, float **wMap,int r)
 	for(int x=0;x<cols;x++){
 		memset(BCB, 0, sizeof(int)*nF);
 		memset(H[0], 0, sizeof(int)*nF*nI);
-		for(int i=0;i<nI;i++)
-			Hf[i][0]=Hb[i][0]=0;
+
 		BCBf[0]=BCBb[0]=0;
 
 		int medianVal = -1;
