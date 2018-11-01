@@ -1,23 +1,23 @@
 #include "core.hpp"
 
-Mat filterCore(Mat &I, Mat &F, float **wMap,int r)
+Mat filterCore(Mat &I, float **wMap,int r)
 {
+	Mat F = I.clone();
+	F.convertTo(F, CV_32S);
 	int nF=256,nI=256;
-	Mat mask = Mat();
 	int rows = I.rows, cols = I.cols;
 	int alls = rows * cols;
 	int winSize = (2*r+1)*(2*r+1);
 	Mat outImg = I.clone();
 
-	if(mask.empty()){
-		mask = Mat(I.size(),CV_8U);
-		mask = Scalar(1);
-	}
-	int **H = int2D(nI,nF);
-	int *BCB = new int[nF];
+	Mat mask = Mat(I.size(),CV_8U);
+	mask = Scalar(1);
 
+	int **H = int2D(nI,nF);
+	// int *BCB = new int[nF];
+	int BCB[nF];
 	int **Hf = int2D(nI,nF), **Hb = int2D(nI,nF);
-	int *BCBf = new int[nF],*BCBb = new int[nF];
+	int BCBf[nF],BCBb[nF];
 
 	for(int x=0;x<cols;x++){
 		memset(BCB, 0, sizeof(int)*nF);
@@ -51,11 +51,11 @@ Mat filterCore(Mat &I, Mat &F, float **wMap,int r)
 					int *curHf = Hf[fval];
 					int *curHb = Hb[fval];
 
-					int p1=0,p2=curHf[0];
-					curHf[p1]=gval;
-					curHf[gval]=p2;
-					curHb[p2]=gval;
-					curHb[gval]=p1;
+					int p1=curHf[0];
+					curHf[0]=gval;
+					curHf[gval]=p1;
+					curHb[0]=gval;
+					curHb[gval]=0;
 				}
 
 				curHist[gval]++;
@@ -65,57 +65,54 @@ Mat filterCore(Mat &I, Mat &F, float **wMap,int r)
 
 		for(int y=0;y<rows;y++)
 		{
-			{
+			float balw = 0;
+			int curIndex = F.ptr<int>(y,x)[0];
+			float *fPtr = wMap[curIndex];
+			int &cmedval = medianVal;
+			int i=0;
+			do{
+				balw += BCB[i]*fPtr[i];
+				i=BCBf[i];
+			}while(i);
 
-				float balw = 0;
-				int curIndex = F.ptr<int>(y,x)[0];
-				float *fPtr = wMap[curIndex];
-				int &cmedval = medianVal;
-				int i=0;
-				do{
-					balw += BCB[i]*fPtr[i];
-					i=BCBf[i];
-				}while(i);
+			if(balw >= 0){
+				for(balw;balw >= 0 && cmedval;cmedval--){
+					float curWeight = 0;
+					int *nextHist = H[cmedval];
+					int *nextHf = Hf[cmedval];
 
-				if(balw >= 0){
-					for(balw;balw >= 0 && cmedval;cmedval--){
-						float curWeight = 0;
-						int *nextHist = H[cmedval];
-						int *nextHf = Hf[cmedval];
+					int i=0;
+					do{
+						curWeight += (nextHist[i]*2)*fPtr[i];
+						
+						updateBCB(BCB[i],BCBf,BCBb,i,-(nextHist[i]*2));
+						
+						i=nextHf[i];
+					}while(i);
 
-						int i=0;
-						do{
-							curWeight += (nextHist[i]<<1)*fPtr[i];
-							
-							updateBCB(BCB[i],BCBf,BCBb,i,-(nextHist[i]<<1));
-							
-							i=nextHf[i];
-						}while(i);
-
-						balw -= curWeight;
-					}
+					balw -= curWeight;
 				}
-				else if(balw < 0){
-					for(balw;balw < 0 && cmedval != nI-1; cmedval++){
-						float curWeight = 0;
-						int *nextHist = H[cmedval+1];
-						int *nextHf = Hf[cmedval+1];
-
-						int i=0;
-						do{
-							curWeight += (nextHist[i]<<1)*fPtr[i];
-
-							updateBCB(BCB[i],BCBf,BCBb,i,nextHist[i]<<1);
-							
-							i=nextHf[i];
-						}while(i);
-						balw += curWeight;
-					}
-				}
-
-				if(balw<0)outImg.ptr<int>(y,x)[0] = cmedval+1;
-				else outImg.ptr<int>(y,x)[0] = cmedval;
 			}
+			else if(balw < 0){
+				for(balw;balw < 0 && cmedval != nI-1; cmedval++){
+					float curWeight = 0;
+					int *nextHist = H[cmedval+1];
+					int *nextHf = Hf[cmedval+1];
+
+					int i=0;
+					do{
+						curWeight += (nextHist[i]*2)*fPtr[i];
+
+						updateBCB(BCB[i],BCBf,BCBb,i,nextHist[i]*2);
+						
+						i=nextHf[i];
+					}while(i);
+					balw += curWeight;
+				}
+			}
+
+			if(balw<0)outImg.ptr<int>(y,x)[0] = cmedval+1;
+			else outImg.ptr<int>(y,x)[0] = cmedval;
 
 			int fval,gval,*curHist;
 			int rownum = y + r + 1;
