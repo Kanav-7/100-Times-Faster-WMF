@@ -1,8 +1,7 @@
 #include "core.hpp"
 
-Mat filterCore(Mat &I, float **wMap,int r)
+Mat filterCore(Mat &I,Mat &F, float **wMap,int r)
 {
-	Mat F = I.clone();
 	F.convertTo(F, CV_32S);
 	int nF=256,nI=256;
 	int rows = I.rows, cols = I.cols;
