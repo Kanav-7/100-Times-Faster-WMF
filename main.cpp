@@ -2,6 +2,7 @@
 #include "core.hpp"
 #include "allocint.hpp"
 #include "bcb.hpp"
+#include "slowWMF.hpp"
 
 Mat req_filter(Mat &I, Mat &F, int r)
 {
@@ -43,11 +44,23 @@ Mat req_filter(Mat &I, Mat &F, int r)
 
 int main( int argc, char** argv ) {
 
-	cv::Mat image,imagegray;
+	cv::Mat image,imagegray,dst;
 	
-	image = imread("xy.png" , CV_LOAD_IMAGE_COLOR);
+	image = imread("pole.jpg" , CV_LOAD_IMAGE_COLOR);
 	cvtColor(image,imagegray, CV_BGR2GRAY);
-	imshow("Display window", req_filter(imagegray,imagegray,1));
+	clock_t t = clock();
+	Mat tm = req_filter(imagegray,imagegray,3);
+	t = clock() - t;
+	double time_taken = ((double)t)/CLOCKS_PER_SEC;
+	cout << time_taken << endl;
+	t = clock();
+	Mat rest = slowwmf(imagegray,imagegray,3);
+	t = clock() - t;
+	time_taken = ((double)t)/CLOCKS_PER_SEC;
+	cout << time_taken << endl;
+	// ximgproc::weightedMedianFilter(imagegray, imagegray, dst, 1, 25.5, 1<<5, noArray());
+	imshow("Display window", tm);
+	cout << "Done" << endl;
 	waitKey(0);
 	return 0;
 }
