@@ -4,6 +4,7 @@
 #include "bcb.hpp"
 #include "slowWMF.hpp"
 
+// I = Input Image, F = Feature Map, r= Radius of Kernel
 Mat req_filter(Mat &I, Mat &F, int r)
 {
 	int nI = 256,nF = 256;
@@ -12,7 +13,7 @@ Mat req_filter(Mat &I, Mat &F, int r)
 
 	float **wMap;
 	int alls = I.cols * I.rows;
-	int op = 0;
+	int op = 0; //for type of weight (0: unweighted, 1: guassian, 2: Jacard)
 	nF = 256;
 
 	float **ret = new float*[nF];
@@ -26,7 +27,6 @@ Mat req_filter(Mat &I, Mat &F, int r)
 
 	for(int i=0;i<nF;i++){
 		for(int j=i;j<nF;j++){
-			// cout << wMap[i][j] << endl;
 			float diff = fabs((float)(i-j));
 			if(op==1)
 				wMap[i][j] = wMap[j][i] = exp(-(diff*diff)*denom);
@@ -45,7 +45,7 @@ Mat req_filter(Mat &I, Mat &F, int r)
 int main( int argc, char** argv ) {
 	cv::Mat image,imagegray,dst;
 	
-	image = imread("sap.png" , CV_LOAD_IMAGE_COLOR);
+	image = imread("input_images/sap.png" , CV_LOAD_IMAGE_COLOR);
 	cvtColor(image,imagegray, CV_BGR2GRAY);
 	Mat final;
 	// for(double p=2;p<5;p+=.2)
@@ -57,6 +57,7 @@ int main( int argc, char** argv ) {
 		t = clock() - t;
 		double time_taken1 = ((double)t)/CLOCKS_PER_SEC;
 		imwrite( "output.jpeg", tm );
+		cout << "Time Taken: " << time_taken1 << "s" << endl;
 
 
 	// 	t = clock();
