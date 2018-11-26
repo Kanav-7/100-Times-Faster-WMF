@@ -23,7 +23,9 @@ Mat slowwmf(Mat &I, Mat &F, int r)
 				{
 					float diff = abs((float)(I.at<int>(p,q) - I.at<int>(i,j)));
 					float denom = (1.0f/(2*26*26));
-					vc.push_back(make_pair(I.at<int>(p,q),1.0f));
+					// vc.push_back(make_pair(I.at<int>(p,q),1.0f));
+					vc.push_back(make_pair(I.at<int>(p,q),exp(-(diff*diff)*denom)));
+
 				}
 			}
 			sort(vc.begin(),vc.end());
