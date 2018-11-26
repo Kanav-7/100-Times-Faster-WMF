@@ -12,7 +12,7 @@ Mat req_filter(Mat &I, Mat &F, int r)
 
 	float **wMap;
 	int alls = I.cols * I.rows;
-	int op = 1;
+	int op = 0;
 	nF = 256;
 
 	float **ret = new float*[nF];
@@ -43,30 +43,31 @@ Mat req_filter(Mat &I, Mat &F, int r)
 }
 
 int main( int argc, char** argv ) {
-
 	cv::Mat image,imagegray,dst;
 	
-	image = imread("xy.png" , CV_LOAD_IMAGE_COLOR);
+	image = imread("sap.png" , CV_LOAD_IMAGE_COLOR);
 	cvtColor(image,imagegray, CV_BGR2GRAY);
 	Mat final;
-	// for(double p=1;p<65;p+=2)
+	// for(double p=2;p<5;p+=.2)
 	// {
-		// resize(imagegray, final ,Size(imagegray.cols * p,imagegray.rows * p),0,0,CV_INTER_LINEAR);
+	int p =1;
 		clock_t t = clock();
-		Mat tm = req_filter(imagegray,imagegray,p);
+		resize(imagegray, final ,Size(imagegray.cols * p,imagegray.rows * p),0,0,CV_INTER_LINEAR);
+		Mat tm = req_filter(final,final,3);
 		t = clock() - t;
 		double time_taken1 = ((double)t)/CLOCKS_PER_SEC;
+		imwrite( "output.jpeg", tm );
 
 
-		t = clock();
-		Mat rest = slowwmf(imagegray,imagegray,p);
-		t = clock() - t;
-		double time_taken2 = ((double)t)/CLOCKS_PER_SEC;
-		cout << time_taken1 << "," <<  time_taken2 << "," << p << endl;
+	// 	t = clock();
+	// 	Mat rest = slowwmf(final,final,3);
+	// 	t = clock() - t;
+	// 	double time_taken2 = ((double)t)/CLOCKS_PER_SEC;
+	// 	cout << time_taken1 << "," << time_taken2 << "," << p << endl;
 	// }
-
+	// output = medianBlur(final, 3);
 	// ximgproc::weightedMedianFilter(imagegray, imagegray, dst, 1, 25.5, 1<<5, noArray());
-	// imshow("Display window", tm);
+	imshow("Display window", tm);
 	cout << "Done" << endl;
 	waitKey(0);
 	return 0;

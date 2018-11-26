@@ -1,0 +1,273 @@
+  PID TTY      STAT   TIME COMMAND
+    1 ?        Ss     0:17 /sbin/init splash
+    2 ?        S      0:00 [kthreadd]
+    4 ?        I<     0:00 [kworker/0:0H]
+    6 ?        I<     0:00 [mm_percpu_wq]
+    7 ?        S      0:00 [ksoftirqd/0]
+    8 ?        I      0:28 [rcu_sched]
+    9 ?        I      0:00 [rcu_bh]
+   10 ?        S      0:00 [migration/0]
+   11 ?        S      0:00 [watchdog/0]
+   12 ?        S      0:00 [cpuhp/0]
+   13 ?        S      0:00 [cpuhp/1]
+   14 ?        S      0:00 [watchdog/1]
+   15 ?        S      0:00 [migration/1]
+   16 ?        S      0:00 [ksoftirqd/1]
+   18 ?        I<     0:00 [kworker/1:0H]
+   19 ?        S      0:00 [cpuhp/2]
+   20 ?        S      0:00 [watchdog/2]
+   21 ?        S      0:00 [migration/2]
+   22 ?        S      0:00 [ksoftirqd/2]
+   24 ?        I<     0:00 [kworker/2:0H]
+   25 ?        S      0:00 [cpuhp/3]
+   26 ?        S      0:00 [watchdog/3]
+   27 ?        S      0:00 [migration/3]
+   28 ?        S      0:00 [ksoftirqd/3]
+   30 ?        I<     0:00 [kworker/3:0H]
+   31 ?        S      0:00 [kdevtmpfs]
+   32 ?        I<     0:00 [netns]
+   33 ?        S      0:00 [rcu_tasks_kthre]
+   34 ?        S      0:00 [kauditd]
+   38 ?        S      0:00 [khungtaskd]
+   39 ?        S      0:00 [oom_reaper]
+   40 ?        I<     0:00 [writeback]
+   41 ?        S      0:00 [kcompactd0]
+   42 ?        SN     0:00 [ksmd]
+   43 ?        SN     0:00 [khugepaged]
+   44 ?        I<     0:00 [crypto]
+   45 ?        I<     0:00 [kintegrityd]
+   46 ?        I<     0:00 [kblockd]
+   48 ?        I<     0:00 [ata_sff]
+   49 ?        I<     0:00 [md]
+   50 ?        I<     0:00 [edac-poller]
+   51 ?        I<     0:00 [devfreq_wq]
+   52 ?        I<     0:00 [watchdogd]
+   55 ?        S      0:00 [kswapd0]
+   56 ?        S      0:00 [ecryptfs-kthrea]
+   98 ?        I<     0:00 [kthrotld]
+   99 ?        I<     0:00 [acpi_thermal_pm]
+  103 ?        I<     0:00 [ipv6_addrconf]
+  113 ?        I<     0:00 [kstrp]
+  130 ?        I<     0:00 [charger_manager]
+  172 ?        S      0:00 [scsi_eh_0]
+  173 ?        I<     0:00 [scsi_tmf_0]
+  174 ?        S      0:00 [scsi_eh_1]
+  175 ?        I<     0:00 [scsi_tmf_1]
+  177 ?        S      0:09 [i915/signal:0]
+  178 ?        S      0:00 [i915/signal:1]
+  179 ?        S      0:00 [i915/signal:2]
+  180 ?        S      0:00 [i915/signal:4]
+  194 ?        I<     0:00 [kworker/3:1H]
+  224 ?        S      0:04 [jbd2/sda10-8]
+  225 ?        I<     0:00 [ext4-rsv-conver]
+  256 ?        I<     0:00 [kworker/2:1H]
+  258 ?        I<     0:00 [kworker/1:1H]
+  259 ?        I<     0:01 [kworker/0:1H]
+  269 ?        S<s    0:38 /lib/systemd/systemd-journald
+  290 ?        Ss     0:08 /lib/systemd/systemd-udevd
+  319 ?        S<     0:00 [loop0]
+  320 ?        S<     0:00 [loop1]
+  321 ?        S<     0:00 [loop2]
+  322 ?        S<     0:00 [loop3]
+  323 ?        S<     0:00 [loop4]
+  324 ?        S<     0:00 [loop5]
+  325 ?        S<     0:00 [loop6]
+  326 ?        S<     0:00 [loop7]
+  327 ?        S<     0:00 [loop8]
+  328 ?        S<     0:00 [loop9]
+  329 ?        S<     0:00 [loop10]
+  330 ?        S<     0:00 [loop11]
+  331 ?        S<     0:00 [loop12]
+  332 ?        S<     0:00 [loop13]
+  499 ?        I<     0:00 [kmemstick]
+  504 ?        I<     0:00 [cfg80211]
+  532 ?        I<     0:00 [ath10k_wq]
+  533 ?        I<     0:00 [ath10k_aux_wq]
+  681 ?        I<     0:00 [kworker/u9:1]
+  693 ?        I<     0:00 [kworker/u9:2]
+  885 ?        Ss     0:02 /lib/systemd/systemd-resolved
+  897 ?        Ssl    0:00 /lib/systemd/systemd-timesyncd
+  963 ?        Ss     0:00 /lib/systemd/systemd-logind
+  965 ?        Ssl    0:00 /usr/sbin/ModemManager
+  971 ?        Ss     0:44 /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+ 1024 ?        Ss     0:04 avahi-daemon: running [garuna.local]
+ 1026 ?        Ssl    0:03 /usr/sbin/thermald --no-daemon --dbus-enable
+ 1051 ?        Ssl    0:04 /usr/sbin/irqbalance --foreground
+ 1058 ?        Ss     0:01 /usr/sbin/acpid
+ 1063 ?        Ssl    0:01 /usr/lib/accountsservice/accounts-daemon
+ 1068 ?        Ssl    0:53 /usr/sbin/NetworkManager --no-daemon
+ 1080 ?        Ssl    0:05 /usr/lib/udisks2/udisksd
+ 1082 ?        Ssl    0:06 /usr/sbin/rsyslogd -n
+ 1144 ?        Ss     0:00 /usr/lib/bluetooth/bluetoothd
+ 1151 ?        Ssl    0:00 /usr/bin/python3 /usr/bin/networkd-dispatcher --run-startup-triggers
+ 1153 ?        Ss     6:16 /sbin/wpa_supplicant -u -s -O /run/wpa_supplicant
+ 1166 ?        Ss     0:00 /usr/sbin/cron -f
+ 1175 ?        Ssl    0:07 /usr/lib/snapd/snapd
+ 1209 ?        S      0:00 avahi-daemon: chroot helper
+ 1268 ?        Ssl    0:00 /usr/lib/policykit-1/polkitd --no-debug
+ 1601 ?        Ss     0:01 /usr/sbin/apache2 -k start
+ 1672 ?        Ss     0:01 /usr/bin/htcacheclean -d 120 -p /var/cache/apache2/mod_cache_disk -l 300M -n
+ 1771 ?        Ssl    0:00 /usr/bin/whoopsie -f
+ 1795 ?        Ssl    1:37 /usr/bin/dockerd -H fd://
+ 1798 ?        Ss     0:00 /usr/sbin/openvpn --daemon ovpn-server --status /run/openvpn/server.status 10 --cd /etc/openvpn --script-security 2 --config /etc/openvpn/server.conf --writepid /run/openvpn/server.pid
+ 1872 ?        Ss     0:01 /usr/sbin/kerneloops --test
+ 1883 ?        Ss     0:01 /usr/sbin/kerneloops
+ 2069 ?        Ssl    0:00 /usr/sbin/gdm3
+ 2241 ?        Sl     0:00 gdm-session-worker [pam/gdm-launch-environment]
+ 2293 ?        S      0:04 lua5.1 /usr/bin/prosody
+ 2301 ?        Ssl    1:19 docker-containerd --config /var/run/docker/containerd/containerd.toml
+ 2310 ?        Ss     0:00 /lib/systemd/systemd --user
+ 2321 ?        S      0:00 (sd-pam)
+ 2371 tty1     Ssl+   0:00 /usr/lib/gdm3/gdm-wayland-session gnome-session --autostart /usr/share/gdm/greeter/autostart
+ 2379 ?        Ss     0:00 /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+ 2409 tty1     Sl+    0:00 /usr/lib/gnome-session/gnome-session-binary --autostart /usr/share/gdm/greeter/autostart
+ 2491 tty1     Sl+    0:34 /usr/bin/gnome-shell
+ 2703 ?        Ssl    0:02 /usr/lib/upower/upowerd
+ 2756 tty1     Sl+    0:00 /usr/bin/Xwayland :1024 -rootless -terminate -accessx -core -listen 4 -listen 5 -displayfd 6
+ 2778 ?        Ssl    0:00 /usr/lib/at-spi2-core/at-spi-bus-launcher
+ 2783 ?        S      0:00 /usr/bin/dbus-daemon --config-file=/usr/share/defaults/at-spi2/accessibility.conf --nofork --print-address 3
+ 2785 ?        Sl     0:00 /usr/lib/at-spi2-core/at-spi2-registryd --use-gnome-session
+ 2790 ?        Ssl    0:00 /usr/bin/pulseaudio --daemonize=no
+ 2791 ?        SNsl   0:00 /usr/lib/rtkit/rtkit-daemon
+ 2939 tty1     Sl     0:00 ibus-daemon --xim --panel disable
+ 2950 tty1     Sl     0:00 /usr/lib/ibus/ibus-dconf
+ 2953 tty1     Sl     0:00 /usr/lib/ibus/ibus-x11 --kill-daemon
+ 2958 ?        Sl     0:00 /usr/lib/ibus/ibus-portal
+ 2963 ?        Ssl    0:00 /usr/lib/x86_64-linux-gnu/boltd
+ 2976 tty1     Sl+    0:00 /usr/lib/gnome-settings-daemon/gsd-xsettings
+ 2980 ?        Ssl    0:12 /usr/lib/packagekit/packagekitd
+ 3013 tty1     Sl+    0:00 /usr/lib/gnome-settings-daemon/gsd-a11y-settings
+ 3014 tty1     Sl+    0:00 /usr/lib/gnome-settings-daemon/gsd-clipboard
+ 3015 tty1     Sl+    0:03 /usr/lib/gnome-settings-daemon/gsd-color
+ 3018 tty1     Sl+    0:00 /usr/lib/gnome-settings-daemon/gsd-datetime
+ 3027 tty1     Sl+    0:00 /usr/lib/gnome-settings-daemon/gsd-housekeeping
+ 3028 tty1     Sl+    0:00 /usr/lib/gnome-settings-daemon/gsd-keyboard
+ 3029 tty1     Sl+    0:00 /usr/lib/gnome-settings-daemon/gsd-media-keys
+ 3035 tty1     Sl+    0:00 /usr/lib/gnome-settings-daemon/gsd-mouse
+ 3036 tty1     Sl+    0:00 /usr/lib/gnome-settings-daemon/gsd-power
+ 3039 tty1     Sl+    0:00 /usr/lib/gnome-settings-daemon/gsd-print-notifications
+ 3040 tty1     Sl+    0:00 /usr/lib/gnome-settings-daemon/gsd-rfkill
+ 3041 tty1     Sl+    0:00 /usr/lib/gnome-settings-daemon/gsd-screensaver-proxy
+ 3046 tty1     Sl+    0:00 /usr/lib/gnome-settings-daemon/gsd-sharing
+ 3047 tty1     Sl+    0:00 /usr/lib/gnome-settings-daemon/gsd-smartcard
+ 3060 ?        Sl     0:00 /usr/lib/dconf/dconf-service
+ 3063 tty1     Sl+    0:00 /usr/lib/gnome-settings-daemon/gsd-sound
+ 3066 tty1     Sl+    0:00 /usr/lib/gnome-settings-daemon/gsd-wacom
+ 3078 tty1     Sl     0:00 /usr/lib/ibus/ibus-engine-simple
+ 3135 ?        Ssl    0:00 /usr/lib/colord/colord
+ 4015 tty1     Sl+    0:01 gnome-control-center sound
+ 4022 ?        Sl     0:00 gdm-session-worker [pam/gdm-password]
+ 4027 ?        Ss     0:00 /lib/systemd/systemd --user
+ 4028 ?        S      0:00 (sd-pam)
+ 4041 ?        SLl    0:00 /usr/bin/gnome-keyring-daemon --daemonize --login
+ 4045 tty2     Ssl+   0:00 /usr/lib/gdm3/gdm-x-session --run-script env GNOME_SHELL_SESSION_MODE=ubuntu gnome-session --session=ubuntu
+ 4047 tty2     Rl+   18:28 /usr/lib/xorg/Xorg vt2 -displayfd 3 -auth /run/user/1000/gdm/Xauthority -background none -noreset -keeptty -verbose 3
+ 4051 ?        Ss     0:02 /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+ 4054 tty2     Sl+    0:01 /usr/lib/gnome-session/gnome-session-binary --session=ubuntu
+ 4079 tty1     S+     0:00 /usr/lib/policykit-1/polkit-agent-helper-1 garuna
+ 4164 ?        Ss     0:00 /usr/bin/ssh-agent /usr/bin/im-launch env GNOME_SHELL_SESSION_MODE=ubuntu gnome-session --session=ubuntu
+ 4166 ?        Ssl    0:00 /usr/lib/at-spi2-core/at-spi-bus-launcher
+ 4171 ?        S      0:00 /usr/bin/dbus-daemon --config-file=/usr/share/defaults/at-spi2/accessibility.conf --nofork --print-address 3
+ 4173 ?        Sl     0:08 /usr/lib/at-spi2-core/at-spi2-registryd --use-gnome-session
+ 4186 ?        Ssl    0:00 /usr/lib/gvfs/gvfsd
+ 4191 ?        Sl     0:00 /usr/lib/gvfs/gvfsd-fuse /run/user/1000/gvfs -f -o big_writes
+ 4209 tty2     Sl+   23:13 /usr/bin/gnome-shell
+ 4218 ?        S<l    9:30 /usr/bin/pulseaudio --start --log-target=syslog
+ 4231 ?        S<     0:00 [krfcommd]
+ 4233 tty2     Sl     0:14 ibus-daemon --xim --panel disable
+ 4237 tty2     Sl     0:00 /usr/lib/ibus/ibus-dconf
+ 4239 tty2     Sl     0:00 /usr/lib/ibus/ibus-x11 --kill-daemon
+ 4241 ?        Sl     0:00 /usr/lib/ibus/ibus-portal
+ 4252 ?        Sl     0:00 /usr/lib/gnome-shell/gnome-shell-calendar-server
+ 4272 ?        Ssl    0:00 /usr/lib/evolution/evolution-source-registry
+ 4278 ?        Sl     0:00 /usr/lib/gnome-online-accounts/goa-daemon
+ 4279 ?        Ssl    0:01 /usr/lib/gvfs/gvfs-udisks2-volume-monitor
+ 4286 ?        Sl     0:00 /usr/lib/gnome-online-accounts/goa-identity-service
+ 4294 ?        Ssl    0:00 /usr/lib/gvfs/gvfs-gphoto2-volume-monitor
+ 4298 ?        Ssl    0:00 /usr/lib/gvfs/gvfs-mtp-volume-monitor
+ 4304 ?        Ssl    0:00 /usr/lib/gvfs/gvfs-afc-volume-monitor
+ 4309 ?        Ssl    0:00 /usr/lib/gvfs/gvfs-goa-volume-monitor
+ 4314 tty2     Sl+    0:01 /usr/lib/gnome-settings-daemon/gsd-power
+ 4316 tty2     Sl+    0:00 /usr/lib/gnome-settings-daemon/gsd-print-notifications
+ 4317 tty2     Sl+    0:00 /usr/lib/gnome-settings-daemon/gsd-rfkill
+ 4318 tty2     Sl+    0:00 /usr/lib/gnome-settings-daemon/gsd-screensaver-proxy
+ 4322 tty2     Sl+    0:01 /usr/lib/gnome-settings-daemon/gsd-sharing
+ 4324 tty2     Sl+    0:00 /usr/lib/gnome-settings-daemon/gsd-smartcard
+ 4328 tty2     Sl+    0:00 /usr/lib/gnome-settings-daemon/gsd-xsettings
+ 4338 tty2     Sl+    0:00 /usr/lib/gnome-settings-daemon/gsd-sound
+ 4340 tty2     Sl+    0:00 /usr/lib/gnome-settings-daemon/gsd-wacom
+ 4347 tty2     Sl+    0:00 /usr/lib/gnome-settings-daemon/gsd-a11y-settings
+ 4348 tty2     Sl+    0:00 /usr/lib/gnome-settings-daemon/gsd-clipboard
+ 4349 tty2     Sl+    0:03 /usr/lib/gnome-settings-daemon/gsd-color
+ 4352 tty2     Sl+    0:00 /usr/lib/gnome-settings-daemon/gsd-datetime
+ 4353 tty2     Sl+    0:01 /usr/lib/gnome-settings-daemon/gsd-housekeeping
+ 4354 tty2     Sl+    0:00 /usr/lib/gnome-settings-daemon/gsd-keyboard
+ 4359 tty2     Sl+    0:01 /usr/lib/gnome-settings-daemon/gsd-media-keys
+ 4361 tty2     Sl+    0:00 /usr/lib/gnome-settings-daemon/gsd-mouse
+ 4410 tty2     Sl+    0:00 /usr/lib/gnome-settings-daemon/gsd-printer
+ 4464 ?        Sl     0:00 /usr/lib/dconf/dconf-service
+ 4470 tty2     Sl+    0:00 /usr/lib/gnome-disk-utility/gsd-disk-utility-notify
+ 4480 tty2     Sl+    0:00 /usr/lib/x86_64-linux-gnu/indicator-application/indicator-application-service
+ 4484 ?        Ssl    0:00 /usr/lib/evolution/evolution-calendar-factory
+ 4492 tty2     Sl+    0:01 nautilus-desktop
+ 4495 tty2     Sl     0:03 /usr/lib/ibus/ibus-engine-simple
+ 4500 tty2     Sl+    0:00 /usr/lib/x86_64-linux-gnu/indicator-messages/indicator-messages-service
+ 4516 ?        Sl     0:00 /usr/lib/gvfs/gvfsd-trash --spawner :1.22 /org/gtk/gvfs/exec_spaw/0
+ 4535 ?        Sl     0:00 /usr/lib/evolution/evolution-calendar-factory-subprocess --factory all --bus-name org.gnome.evolution.dataserver.Subprocess.Backend.Calendarx4484x2 --own-path /org/gnome/evolution/dataserver/Subprocess/Backend/Calendar/4484/2
+ 4548 ?        Ssl    0:00 /usr/lib/evolution/evolution-addressbook-factory
+ 4562 ?        Sl     0:00 /usr/lib/evolution/evolution-addressbook-factory-subprocess --factory all --bus-name org.gnome.evolution.dataserver.Subprocess.Backend.AddressBookx4548x2 --own-path /org/gnome/evolution/dataserver/Subprocess/Backend/AddressBook/4548/2
+ 4588 ?        Ssl    0:00 /usr/lib/gvfs/gvfsd-metadata
+ 4593 tty2     Sl+    0:07 zeitgeist-datahub
+ 4605 ?        Ssl    0:00 /usr/bin/zeitgeist-daemon
+ 4618 ?        Ssl    0:00 /usr/lib/zeitgeist/zeitgeist/zeitgeist-fts
+ 4630 tty2     Sl+  140:49 /usr/lib/firefox/firefox
+ 4850 tty2     Sl+    9:18 /usr/lib/firefox/firefox -contentproc -childID 3 -isForBrowser -prefsLen 151 -prefMapSize 175291 -schedulerPrefs 0001,2 -parentBuildID 20181023214826 -greomni /usr/lib/firefox/omni.ja -appomni /usr/lib/firefox/browser/omni.ja -appdir /usr/lib/firefox/browser 4630 true tab
+ 4864 ?        Ssl    0:05 /usr/lib/gnome-terminal/gnome-terminal-server
+ 4894 pts/0    Ss     0:00 zsh
+ 5477 tty2     Sl+    0:01 update-notifier
+ 5478 tty2     SLl+   0:05 /usr/bin/gnome-software --gapplication-service
+ 5503 ?        Ssl    0:00 /usr/lib/fwupd/fwupd
+ 5786 tty2     Sl+    0:00 /usr/lib/deja-dup/deja-dup-monitor
+ 6215 tty2     Sl+   44:49 /usr/lib/firefox/firefox -contentproc -childID 8 -isForBrowser -prefsLen 6044 -prefMapSize 175291 -schedulerPrefs 0001,2 -parentBuildID 20181023214826 -greomni /usr/lib/firefox/omni.ja -appomni /usr/lib/firefox/browser/omni.ja -appdir /usr/lib/firefox/browser 4630 true tab
+11545 tty2     Sl+    0:00 file-roller /tmp/mozilla_garuna0/DIPLec1920.zip
+11565 ?        Ssl    0:00 /usr/lib/evince/evinced
+11703 ?        I      0:02 [kworker/2:0]
+11816 tty2     Sl+    0:56 evince /home/garuna/.cache/.fr-lKKxmD/DIPLec1920/Lec19.pdf
+12328 tty2     Sl+    0:00 gnome-calculator
+12441 ?        I      0:00 [kworker/3:1]
+13536 ?        I      0:00 [kworker/1:1]
+13622 ?        I      0:01 [kworker/u8:9]
+13648 ?        I      0:00 [kworker/u8:35]
+13664 ?        S      0:00 [irq/130-mei_me]
+13919 ?        S      0:00 /sbin/dhclient -d -q -sf /usr/lib/NetworkManager/nm-dhcp-helper -pf /run/dhclient-enp3s0f1.pid -lf /var/lib/NetworkManager/dhclient-ad74756b-a312-4ec0-b22b-512ffc7a18fe-enp3s0f1.lease -cf /var/lib/NetworkManager/dhclient-enp3s0f1.conf enp3s0f1
+14341 tty2     Sl+    8:13 /usr/lib/firefox/firefox -contentproc -childID 14 -isForBrowser -prefsLen 6675 -prefMapSize 175291 -schedulerPrefs 0001,2 -parentBuildID 20181023214826 -greomni /usr/lib/firefox/omni.ja -appomni /usr/lib/firefox/browser/omni.ja -appdir /usr/lib/firefox/browser 4630 true tab
+15237 ?        S      0:00 /usr/sbin/fcgi-pm -k start
+15240 ?        S      0:00 /usr/sbin/apache2 -k start
+15242 ?        Sl     0:00 /usr/sbin/apache2 -k start
+15243 ?        Sl     0:00 /usr/sbin/apache2 -k start
+15311 ?        Ss     0:00 /usr/sbin/cupsd -l
+15312 ?        Ssl    0:00 /usr/sbin/cups-browsed
+16186 pts/0    S+     0:00 /bin/bash /usr/bin/subl .
+16187 pts/0    Sl+    0:10 /opt/sublime_text_2/sublime_text --class=sublime-text-2 .
+16188 ?        I      0:00 [kworker/0:0]
+16206 pts/1    Ss     0:01 zsh
+16800 pts/1    Sl     0:11 nautilus --new-window /home/garuna/Desktop/DIP
+16944 tty2     Sl+    0:07 /usr/lib/firefox/firefox -contentproc -childID 19 -isForBrowser -prefsLen 6675 -prefMapSize 175291 -schedulerPrefs 0001,2 -parentBuildID 20181023214826 -greomni /usr/lib/firefox/omni.ja -appomni /usr/lib/firefox/browser/omni.ja -appdir /usr/lib/firefox/browser 4630 true tab
+16999 ?        Sl     0:00 /usr/lib/gvfs/gvfsd-network --spawner :1.22 /org/gtk/gvfs/exec_spaw/1
+17027 ?        Sl     0:00 /usr/lib/gvfs/gvfsd-dnssd --spawner :1.22 /org/gtk/gvfs/exec_spaw/5
+18285 ?        I      0:00 [kworker/2:2]
+18591 ?        I      0:00 [kworker/0:1]
+19412 ?        S      0:00 /sbin/dhclient -d -q -sf /usr/lib/NetworkManager/nm-dhcp-helper -pf /run/dhclient-wlp2s0.pid -lf /var/lib/NetworkManager/dhclient-6b02d729-74ee-45b7-8c7b-74896d73ed25-wlp2s0.lease -cf /var/lib/NetworkManager/dhclient-wlp2s0.conf wlp2s0
+19423 ?        I      0:00 [kworker/u8:1]
+19907 ?        I      0:00 [kworker/2:3]
+20008 ?        I      0:00 [kworker/3:0]
+20023 tty2     Sl+    0:00 /usr/lib/speech-dispatcher-modules/sd_generic /etc/speech-dispatcher/modules/generic.conf
+20026 tty2     Sl+    0:00 /usr/lib/speech-dispatcher-modules/sd_espeak-ng /etc/speech-dispatcher/modules/espeak-ng.conf
+20032 tty2     Sl+    0:00 /usr/lib/speech-dispatcher-modules/sd_dummy /etc/speech-dispatcher/modules/dummy.conf
+20035 ?        Ssl    0:00 /usr/bin/speech-dispatcher --spawn --communication-method unix_socket --socket-path /run/user/1000/speech-dispatcher/speechd.sock
+20075 ?        I      0:00 [kworker/1:0]
+20180 ?        I      0:00 [kworker/u8:0]
+20369 ?        I      0:00 [kworker/0:2]
+20404 ?        I      0:00 [kworker/3:2]
+20798 ?        I      0:00 [kworker/1:2]
+21328 pts/1    R+     0:00 ps -A -9
