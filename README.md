@@ -21,6 +21,9 @@ We have used gcc complier for implementation purpose
 ## Using filter
 In the main.cpp file, in main function change the image path to required path to implement the algorithm
 
-An example implementation:
+## An example implementation:
+
+
 ![noisy image](https://github.com/Kanav-7/DIP-Project/blob/master/sap.png)
+
 ![image filtered](https://github.com/Kanav-7/DIP-Project/blob/master/results/output.jpeg)
