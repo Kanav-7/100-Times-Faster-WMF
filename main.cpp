@@ -53,18 +53,18 @@ int main( int argc, char** argv ) {
 	int p =1;
 		// resize(imagegray, final ,Size(imagegray.cols * p,imagegray.rows * p),0,0,CV_INTER_LINEAR);
 		clock_t t = clock();
-		Mat tm = req_filter(imagegray,imagegray,25);
+		Mat tm = req_filter(imagegray,imagegray,15);
 		t = clock() - t;
 		double time_taken1 = ((double)t)/CLOCKS_PER_SEC;
 		imwrite( "output.jpeg", tm );
-		cout << "Time Taken: " << time_taken1 << "s" << endl;
+		cout << "Time Taken: " << time_taken1 << "s by our implementation" << endl;
 
 
-	// 	t = clock();
-	// 	Mat rest = slowwmf(final,final,3);
-	// 	t = clock() - t;
-	// 	double time_taken2 = ((double)t)/CLOCKS_PER_SEC;
-	// 	cout << time_taken1 << "," << time_taken2 << "," << p << endl;
+		t = clock();
+		Mat rest = slowwmf(imagegray,imagegray,15);
+		t = clock() - t;
+		double time_taken2 = ((double)t)/CLOCKS_PER_SEC;
+		cout  << "Time Taken: " << time_taken2 << "s by naive implementation"  << endl;
 	// }
 	// output = medianBlur(final, 3);
 	// ximgproc::weightedMedianFilter(imagegray, imagegray, dst, 1, 25.5, 1<<5, noArray());
