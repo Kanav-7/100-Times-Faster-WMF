@@ -13,7 +13,7 @@ Mat req_filter(Mat &I, Mat &F, int r)
 
 	float **wMap;
 	int alls = I.cols * I.rows;
-	int op = 0; //for type of weight (0: unweighted, 1: guassian, 2: Jacard)
+	int op = 1;  //for type of weight (0: unweighted, 1: guassian, 2: Jacard)
 	nF = 256;
 
 	float **ret = new float*[nF];
@@ -45,15 +45,15 @@ Mat req_filter(Mat &I, Mat &F, int r)
 int main( int argc, char** argv ) {
 	cv::Mat image,imagegray,dst;
 	
-	image = imread("input_images/sap.png" , CV_LOAD_IMAGE_COLOR);
+	image = imread("input_images/x3.png" , CV_LOAD_IMAGE_COLOR);
 	cvtColor(image,imagegray, CV_BGR2GRAY);
 	Mat final;
 	// for(double p=2;p<5;p+=.2)
 	// {
 	int p =1;
+		// resize(imagegray, final ,Size(imagegray.cols * p,imagegray.rows * p),0,0,CV_INTER_LINEAR);
 		clock_t t = clock();
-		resize(imagegray, final ,Size(imagegray.cols * p,imagegray.rows * p),0,0,CV_INTER_LINEAR);
-		Mat tm = req_filter(final,final,3);
+		Mat tm = req_filter(imagegray,imagegray,25);
 		t = clock() - t;
 		double time_taken1 = ((double)t)/CLOCKS_PER_SEC;
 		imwrite( "output.jpeg", tm );
