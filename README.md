@@ -30,6 +30,6 @@ int r =  radius of the filter required
 ## An example implementation:
 
 
-![noisy image](https://github.com/Kanav-7/DIP-Project/blob/master/sap.png)
+![noisy image](https://github.com/Kanav-7/DIP-Project/blob/master/input_images/sap.png)
 
 ![image filtered](https://github.com/Kanav-7/DIP-Project/blob/master/results/output.jpeg)
